@@ -54,7 +54,8 @@ function upload(a) {
 	var xhr = new XMLHttpRequest();
 	var fd = new FormData();
 	var ff = a.parentNode;
-	var newhref ='<a index="'+ $(a).index() +'" class="btn btn-primary disabled">上传中...</a>';
+	var newhref = '<a index="' + $(a).index()
+			+ '" class="btn btn-primary disabled">上传中...</a>';
 	console.log(newhref);
 	$(newhref).insertBefore(a);
 	$(a).remove();
@@ -83,13 +84,26 @@ function upload(a) {
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			$('.bar').width("100%");
-			$('.progress').fadeOut(4000,function(){$('.progress').remove();});
-			$('.disabled').text("上传成功");	
-			
+			$('.progress').fadeOut(2000, function() {
+				$('.progress').remove();
+				$('.disabled').text("上传成功");
+			});
+			// $('.disabled').text("上传成功");
+
 			console.log("upload successful!");
 		}
 		;
+		if(xhr.readyState == 4 && xhr.status == 0){
+			alert("服务器无响应，上传失败！");
+		};
 	};
+	xhr.error = function() {
+		console.log("error connection");
+	};
+//	xhr.timeout = 1;
+//	xhr.ontimeout = function(event) {
+//		alert('请求超时！');
+//	};
 	xhr.open('POST', 'http://127.0.0.1/bootstrap/upload');
 	xhr.send(fd);
 
