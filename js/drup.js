@@ -53,6 +53,15 @@ function pop(a) {
 function upload(a) {
 	var xhr = new XMLHttpRequest();
 	var fd = new FormData();
+	var ff = a.parentNode;
+	var newhref ='<a index="'+ $(a).index() +'" class="btn btn-primary disabled">上传中...</a>';
+	console.log(newhref);
+	$(newhref).insertBefore(a);
+	$(a).remove();
+	console.log($(a));
+	$(
+			'<p><div class="progress"><div class="bar" style="width: 0%;"></div></div></p>')
+			.insertAfter(ff);
 	[].forEach.call(filelist, function(f, index) {
 		console.log(index);
 
@@ -61,19 +70,23 @@ function upload(a) {
 			console.log(index);
 			fd.append('files[]', f);
 			console.log(fd);
-			$('#progress').show();
-			$('.bar').width("0%");
 
 		}
 	});
 	xhr.upload.onprogress = function(e) {
-		console.log($('#progress'));
+		console.log($('.progress'));
 		console.log(e.loaded / e.total);
+		var percentage = Math.round(e.loaded / e.total * 100) + "%";
+		$('.bar').width(percentage);
+		console.log(percentage);
 	};
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			$('.bar').width("100%");
-			$('#progress').fadeOut(4000);
+			$('.progress').fadeOut(4000,function(){$('.progress').remove();});
+			$('.disabled').text("上传成功");	
+			
+			console.log("upload successful!");
 		}
 		;
 	};
@@ -87,7 +100,7 @@ function drup() {
 	var area = document.getElementById("area");
 	document.getElementById("info").className = "hide";
 	document.getElementById("imgs").className = "hide";
-	$('#progress').hide();
+	$('.progress').hide();
 	area.addEventListener("dragenter", handleDragEnter, false);
 	target.addEventListener("dragover", handleDragOver, false);
 	target.addEventListener("dragleave", handleDragLeave, false);
@@ -140,6 +153,7 @@ function handleDrop(e) {
 
 							msg += "</p></div>";
 						});
+		setInfo(msg);
 
 	}
 

@@ -47,9 +47,6 @@
 		</div>
 		<div id="main">Drag and drop your files here.</div>
 		<div id="info">
-			<div class="progress" id="progress">
-				<div class="bar" style="width: 0%;"></div>
-			</div>
 			<div id="msg">文件信息：</div>
 		</div>
 		<div id="imgs"></div>
