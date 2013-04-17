@@ -82,6 +82,7 @@ function upload(a) {
 		console.log(percentage);
 	};
 	xhr.onreadystatechange = function() {
+		console.log("readyState:"+xhr.readyState+"   status:"+xhr.status);
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			$('.bar').width("100%");
 			$('.progress').fadeOut(2000, function() {
@@ -94,16 +95,16 @@ function upload(a) {
 		}
 		;
 		if(xhr.readyState == 4 && xhr.status == 0){
-			alert("服务器无响应，上传失败！");
+			console.log("服务器无响应，上传失败！");
 		};
 	};
 	xhr.error = function() {
 		console.log("error connection");
 	};
-//	xhr.timeout = 1;
-//	xhr.ontimeout = function(event) {
-//		alert('请求超时！');
-//	};
+	xhr.timeout = 300;
+	xhr.ontimeout = function(event) {
+		console.log("time out !");
+	};
 	xhr.open('POST', 'http://127.0.0.1/bootstrap/upload');
 	xhr.send(fd);
 

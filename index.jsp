@@ -33,14 +33,10 @@
 				<div class="navbar-inner">
 					<a class="brand" href="#">Drup</a>
 					<ul class="nav">
-						<li class="active"><a href="#">Home</a>
-						</li>
-						<li><a href="#">Demo</a>
-						</li>
-						<li><a href="#">Download</a>
-						</li>
-						<li><a href="#">Document</a>
-						</li>
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">Demo</a></li>
+						<li><a href="#">Download</a></li>
+						<li><a href="#">Document</a></li>
 					</ul>
 				</div>
 			</div>
@@ -50,21 +46,22 @@
 			<div id="msg">文件信息：</div>
 		</div>
 		<div id="imgs"></div>
-		<div id="footer"></div>
+		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">×</button>
+				<h3 id="myModalLabel">图片预览：</h3>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>
+
 	</div>
-	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true">×</button>
-			<h3 id="myModalLabel">图片预览：</h3>
-		</div>
-		<div class="modal-body">
-		</div>
-		<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-		</div>
-	</div>
+	<div id="footer">Designed by nenew</div>
+
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>

@@ -1,11 +1,13 @@
 @CHARSET "UTF-8";
 
-body {
+html,body {
 	margin: 0;
+	height: 100%;
 }
 
 #area {
-	margin: auto;
+	margin: 0 0 -70px 0;
+	min-height: 100%;
 }
 
 #main {
@@ -20,6 +22,25 @@ body {
 	font-size: 30px;
 	padding-top: 50px;
 	padding-bottom: 50px;
+}
+
+#footer {
+	height: 70px;
+	text-align: center;
+	background-color: #dadada;
+	font-size: 40px;
+	padding-top: 17px;
+	text-shadow: 1px 1px 1px hsla(0, 0%, 0%, .2), 2px 2px 2px
+		hsla(0, 0%, 0%, .2), 3px 3px 3px hsla(0, 0%, 0%, .2), 4px 4px 4px
+		hsla(0, 0%, 0%, .2), 5px 5px 5px hsla(0, 0%, 0%, .2), 6px 6px 6px
+		hsla(0, 0%, 0%, .2);
+}
+#footer:hover {
+
+	text-shadow: 1px 1px 1px hsla(30, 50%, 50%, .5), 2px 2px 2px
+		hsla(30, 50%, 50%, .9), 3px 3px 3px hsla(30, 50%, 50%, .9), 4px 4px 4px
+		hsla(30, 50%, 50%, .9), 5px 5px 5px hsla(30, 50%, 50%, .9), 6px 6px 6px
+		hsla(30, 50%, 50%, .9);
 }
 
 .dragover {
